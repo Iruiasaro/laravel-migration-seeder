@@ -31,14 +31,6 @@ class AddFieldsToPackages extends Migration
      */
     public function down()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            $table->string('name', 50);
-            $table->longText('description');
-            $table->string('city', 50);
-            $table->decimal('price', $precision = 5, $scale = 2);
-            $table->date("departure");
-            $table->date("arrival");
-            $table->integer('nights');
-        });
+        Schema::dropIfExists('packages');
     }
 }
